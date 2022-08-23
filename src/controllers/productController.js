@@ -18,12 +18,12 @@ const controller = {
     });
     return res.render("products/detail", { product });
   },
-  formNew: function (req, res) {
+  create: function (req, res) {
     const categories = databaseJson.readJson(categoriesFilename);
 
-    return res.render("products/form", { categories });
+    return res.render("products/create", { categories });
   },
-  create: function (req, res) {
+  store: function (req, res) {
     //leer el json
     const prods = databaseJson.readJson(databaseFilename);
 
@@ -50,7 +50,7 @@ const controller = {
     //redireccione al listado de productos
     return res.redirect("/products");
   },
-  formEdit: function (req, res) {
+  edit: function (req, res) {
     //return res.send(req.params);
     const products = databaseJson.readJson(databaseFilename);
 

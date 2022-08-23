@@ -3,36 +3,48 @@
         "id": 1,
         "name": "producto 1 editado",
         "price": "201",
-        "img": ""
+        "img": "img-1661268122380-595561361.jpg"
     },
     {
         "id": 2,
-        "name": "producto 2",
+        "name": "Cambio de nombre",
         "price": "200",
-        "img": ""
+        "img": "img-1661268130149-305096459.jpg"
     },
     {
         "id": 3,
         "name": "prod 3",
         "price": "11",
-        "img": ""
+        "img": "img-1661268145315-106564143.jpg"
     },
     {
         "id": 4,
         "name": "producto 4",
         "price": "400",
-        "img": ""
+        "img": "img-1661268157858-278932779.jpg"
     },
     {
         "id": 5,
         "name": "prodcut con imagen",
         "price": "122",
-        "img": "img-1654555107685-729812698.png"
+        "img": "img-1661268166822-528372102.jpg"
     },
     {
         "id": 6,
         "name": "Administrador",
         "price": "21",
-        "img": "img-1661251751022-75307168.jpg"
+        "img": "img-1661268174526-879242619.jpg"
+    },
+    {
+        "id": 7,
+        "name": "perocha",
+        "price": "21",
+        "img": "img-1661268190564-815606767.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Otro Mas",
+        "price": "1343",
+        "img": "img-1661268339991-990446140.jpg"
     }
 ]

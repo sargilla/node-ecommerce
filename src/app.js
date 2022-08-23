@@ -10,6 +10,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const productsRouter = require("./routes/products");
 const authRouter = require("./routes/auth");
+const menuMiddleware = require("./middlewares/menuMiddleware");
 
 const app = express();
 
@@ -46,6 +47,8 @@ app.use(function (req, res, next) {
   }
   return next();
 });
+
+app.use(menuMiddleware);
 
 app.use("/", indexRouter);
 app.use("/", authRouter);

@@ -18,7 +18,7 @@
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="/" target="_blank">
+        <a class="navbar-brand waves-effect" href="/">
             <strong class="blue-text">E-Commerce</strong>
         </a>
 
@@ -33,19 +33,26 @@
 
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="#">Inicio
-                        <span class="sr-only">(current)</span>
+                <li class="nav-item <%= locals.active == '' ? 'active':'' %> ">
+                    <a class="nav-link waves-effect" href="/">Inicio
+                        <% if (locals.active=='/' ) { %>
+
+                            <span class="sr-only">(current)</span>
+                            <% } %>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="/products" target="_blank">Productos</a>
+                <li class="nav-item <%= locals.active == 'products' ? 'active':'' %>">
+                    <a class="nav-link waves-effect" href="/products">Productos</a>
+                    <% if (locals.active=='products' ) { %>
+
+                        <span class="sr-only">(current)</span>
+                        <% } %>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="/login" target="_blank">Ingreso</a>
+                    <a class="nav-link waves-effect" href="/login">Ingreso</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="/register" target="_blank">Registro</a>
+                    <a class="nav-link waves-effect" href="/register">Registro</a>
                 </li>
             </ul>
 
@@ -61,9 +68,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="https://github.com/juancarlosDH/magazine"
+                    <a href="https://github.com/sargilla/node-ecommerce"
                         class="nav-link border border-light rounded waves-effect" target="_blank">
-                        <i class="fab fa-github mr-2"></i>Project GitHub
+                        <i class="fab fa-github mr-2"></i>Repositorio
                     </a>
                 </li>
             </ul>

@@ -1,45 +1,52 @@
-<%- include('../partials/head') %>
+<!DOCTYPE html>
+<html lang="es">
 
-  <link rel="stylesheet" href="/css/auth.css">
-  </head>
-  
-  <body>
+<head>
+  <%- include('../partials/head') %>
+
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+  <%- include('../partials/header') %>
     <%- include('../partials/header') %>
-    <main>
-      <div class="container">
-        <div class="section-title">
-          <h1>Registrate</h1>
+      <main class="my-5 pt-4 login">
+        <div class="card shadow my-5" style="min-width: 300px;">
+          <form class="card-body" action="/register" method="POST">
+            <h2 class="mt-3 h2 text-center">Registrarse</h2>
+            <div class="md-form">
+
+              <input type="text" name="email" id="email" value="<%= locals.olds && olds.email ? olds.email : '' %>"
+                class="form-control">
+              <label for="email">Email</label>
+              <% if (locals.errors && errors.email) { %>
+                <span>
+                  <%= errors.email.msg %>
+                </span>
+                <% } %>
+            </div>
+            <div class="md-form">
+              <input type="password" name="password" id="password" class="form-control">
+              <label for="password">Password</label>
+              <% if (locals.errors && errors.password) { %>
+                <span>
+                  <%= errors.password.msg %>
+                </span>
+                <% } %>
+            </div>
+            <div class="md-form">
+              <input type="password" name="confirm-password" id="confirm-password" class="form-control">
+              <label for="confirm-password">Confirm Pass</label>
+            </div>
+
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block waves-effect waves-light" type="submit">Registrarse</button>
+
+          </form>
         </div>
-        
-        <form class="form-new" action="/register" method="POST" enctype="multipart/form-data">
-            <div>
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" value="<%= locals.olds && olds.email ? olds.email : '' %>">
-                <% if (locals.errors && errors.email) { %>
-                <span><%= errors.email.msg %></span>
-                <% } %>
-            </div>
+      </main>
+      <%- include('../partials/footer') %>
+        <%- include('../partials/scripts') %>
+</body>
 
-            <div>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-                <% if (locals.errors && errors.password) { %>
-                <span><%= errors.password.msg %></span>
-                <% } %>
-            </div>
-
-            <div>
-                <label for="confirm-password">Confirm Pass</label>
-                <input type="password" name="confirm-password" id="confirm-password">
-            </div>
-
-            <div>
-                <button type="submit">Unirme</button>
-            </div>
-
-        </form>
-      </div>
-    </main>
-
-  </body>
 </html>

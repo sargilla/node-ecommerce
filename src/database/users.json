@@ -4,5 +4,11 @@
         "email": "juan@juan.com",
         "password": "$2a$10$dyX8uOZQCiP6AoQfWCuapuiAyxCcA2CCF7SDSmdh.VAuSIA/RKXjW",
         "img": ""
+    },
+    {
+        "id": 3,
+        "email": "sargilla@gmail.com",
+        "password": "$2a$10$51r5wHisvhqgxQGteCpDi.GjGsEwY29A3OjvHjZe9QR4DhzY6uz3W",
+        "img": ""
     }
 ]

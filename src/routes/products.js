@@ -27,12 +27,12 @@ router.get("/", controller.index);
 router.get("/detail/:id", controller.detail);
 
 //rutas para crear
-router.get("/create", controller.formNew);
-router.post("/", upload.single("img"), controller.create);
+router.get("/create", controller.create);
+router.post("/", upload.single("img"), controller.store);
 
 //rutas para editar
-router.get("/edit/:id", controller.formEdit);
-router.put("/:id", controller.update);
+router.get("/edit/:id", controller.edit);
+router.put("/:id", upload.single("img"), controller.update);
 
 //ruta para eliminar
 router.delete("/:id", controller.delete);
