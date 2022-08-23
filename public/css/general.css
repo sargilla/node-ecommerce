@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+body {
+    font-size: 14px;
+    background-color:#fff;
+}
+  
+header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: antiquewhite;
+    z-index: 10;
+}
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo {
+    font-size: 38px;
+    font-weight: bolder;
+    padding: 2px;
+}
+
+.menu-user {
+    display: flex;
+}
+
+.menu-user-item {
+    display: block;
+    padding: 10px;
+    background-color: antiquewhite;
+    text-decoration: none;
+    color: teal;
+}
+
+.menu-user-item:hover {
+    background-color: teal;
+    color: antiquewhite;
+}
+
+main{
+}
+
+section{
+    padding: 20px;
+}
+
+.container{
+    margin: 63px 5px 0 5px;
+    max-width: 1200px;
+}
+
+.main-full{
+    height: 91vh;
+    background-color: burlywood;
+}
+
+.section-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-new-title{
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(24, 24, 224);
+    color: aliceblue;
+}
+.btn-new-title:hover{
+    background-color: rgb(68, 68, 255);
+}
+
+.form-new {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-new>div {
+    flex-basis: 100%;
+    margin-top: 10px;
+}
+
+.form-new>div>label {
+    display: block;
+}
+
+.form-new>div>input {
+    display: block;
+    width: 100%;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+@media (min-width:600px){
+    .form-new>div {
+        flex-basis: 49%;
+    }
+ 
+}
+
+@media (min-width:1200px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

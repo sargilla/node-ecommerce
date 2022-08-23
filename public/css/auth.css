@@ -1,0 +1,21 @@
+.container {
+    max-width: 800px;
+    margin: 100px auto 0 auto;
+    padding: 10px;
+}
+
+.form-new {
+    padding: 10px;
+    display: block;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-new>div>button[type=submit] {
+    width: 100%;
+    padding: 10px;
+    background-color: gray;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}

@@ -1,0 +1,47 @@
+<%- include('../partials/head') %>
+
+  <link rel="stylesheet" href="/css/auth.css">
+  </head>
+  
+  <body>
+    <%- include('../partials/header') %>
+    <main>
+      <div class="container">
+        <div class="section-title">
+          <h1>Ingresar</h1>
+        </div>
+        
+        <form class="form-new" action="/login" method="POST">
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" value="<%= locals.olds && olds.email ? olds.email : '' %>">
+                <% if (locals.errors && errors.email) { %>
+                <span><%= errors.email.msg %></span>
+                <% } %>
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <% if (locals.errors && errors.password) { %>
+                <span><%= errors.password.msg %></span>
+                <% } %>
+            </div>
+
+            <div>
+              <div>
+                <input type="checkbox" name="rememberMe" id="remember-me">
+                <label for="remember-me">Recuerdame (por 30 días)</label>
+              </div>
+            </div>
+
+            <div>
+                <button type="submit">Ingresar</button>
+            </div>
+
+        </form>
+      </div>
+    </main>
+
+  </body>
+</html>

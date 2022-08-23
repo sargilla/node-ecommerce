@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "producto 1 editado",
+        "price": "201",
+        "img": ""
+    },
+    {
+        "id": 2,
+        "name": "producto 2",
+        "price": "200",
+        "img": ""
+    },
+    {
+        "id": 3,
+        "name": "prod 3",
+        "price": "11",
+        "img": ""
+    },
+    {
+        "id": 4,
+        "name": "producto 4",
+        "price": "400",
+        "img": ""
+    },
+    {
+        "id": 5,
+        "name": "prodcut con imagen",
+        "price": "122",
+        "img": "img-1654555107685-729812698.png"
+    },
+    {
+        "id": 6,
+        "name": "Administrador",
+        "price": "21",
+        "img": "img-1661251751022-75307168.jpg"
+    }
+]

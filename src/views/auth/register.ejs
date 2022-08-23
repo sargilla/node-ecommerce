@@ -1,0 +1,45 @@
+<%- include('../partials/head') %>
+
+  <link rel="stylesheet" href="/css/auth.css">
+  </head>
+  
+  <body>
+    <%- include('../partials/header') %>
+    <main>
+      <div class="container">
+        <div class="section-title">
+          <h1>Registrate</h1>
+        </div>
+        
+        <form class="form-new" action="/register" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" value="<%= locals.olds && olds.email ? olds.email : '' %>">
+                <% if (locals.errors && errors.email) { %>
+                <span><%= errors.email.msg %></span>
+                <% } %>
+            </div>
+
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <% if (locals.errors && errors.password) { %>
+                <span><%= errors.password.msg %></span>
+                <% } %>
+            </div>
+
+            <div>
+                <label for="confirm-password">Confirm Pass</label>
+                <input type="password" name="confirm-password" id="confirm-password">
+            </div>
+
+            <div>
+                <button type="submit">Unirme</button>
+            </div>
+
+        </form>
+      </div>
+    </main>
+
+  </body>
+</html>

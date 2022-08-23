@@ -1,0 +1,48 @@
+<%- include('../partials/head') %>
+
+  <link rel="stylesheet" href="/css/products.css">
+  </head>
+  
+  <body>
+    <%- include('../partials/header') %>
+    <main>
+      <div class="container">
+        <div class="section-title">
+          <h1>Productos</h1>
+    
+          <div>
+              <a class="btn-new-title" href="/products/create">Nuevo</a>
+          </div>
+        </div>
+        
+    
+        <div class="product-list">
+          <% products.forEach( prod => { %>
+            <div class="product">
+              <div class="product-img-list">
+                <img width="100%" src="/img/products/<%= prod.img %>" alt="">
+              </div>
+              <div>
+                <div><%= prod.category %></div>
+                <div><%= prod.name %></div>
+                <div><%= prod.price %></div>
+                <div class="product-action-buttons">
+                  <a class="product-action-btn" href="/products/edit/<%= prod.id %>">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <form action="/products/delete/<%= prod.id %>?_method=delete">
+                    <button class="product-action-btn" type="submit">
+                      <i class="fas fa-trash-alt"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          <% } ) %>
+        </div>
+      </div>
+      
+    </main>
+
+  </body>
+</html>
