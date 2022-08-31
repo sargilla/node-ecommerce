@@ -10,9 +10,14 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const productsRouter = require("./routes/products");
 const authRouter = require("./routes/auth");
+const sessionMiddleware = require("./middlewares/sessionMiddleware");
+const sessionTimeMiddleware = require("./middlewares/sessionTimeMiddleware");
 const menuMiddleware = require("./middlewares/menuMiddleware");
 
 const app = express();
+
+// .ENV
+require("dotenv").config();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -25,28 +30,12 @@ app.use(mo("_method"));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(
-  ses({ secret: "es un secreto", resave: false, saveUninitialized: false })
+  ses({ secret: "es un secreto", resave: false, saveUninitialized: true })
 );
 
 // esto es un middleware de tiempo de session
-app.use(function (req, res, next) {
-  let dateNow = Date.now();
-  console.log("dateNow", dateNow);
-  // reviso si es un usuario
-  if (req.session.user && req.session.lastActitity) {
-    // resto las fecha en formato numerico
-    let compare = dateNow - req.session.lastActitity;
-    console.log("fechas comparadas", compare);
-    // si es mayor a 30 min, redirijo al login
-    if (compare > 1000 * 60 * 30) {
-      req.session.destroy();
-      return res.redirect("/login");
-    }
-    // sino actualizo la fecha en formato numerico
-    req.session.lastActitity = dateNow;
-  }
-  return next();
-});
+app.use(sessionMiddleware);
+app.use(sessionTimeMiddleware);
 
 app.use(menuMiddleware);
 

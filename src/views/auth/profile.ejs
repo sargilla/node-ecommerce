@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head') %>
+
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <!--Main layout-->
+        <main class="mt-5 pt-4">
+            <div class="container wow fadeIn animated">
+                <h2 class="mt-5 mb-3 h2 text-center">
+                    Perfil de <%= locals.userLogged.name%>
+                </h2>
+                <div class="card mb-5">
+                    <div class="card-header">
+                        Mis Datos
+                    </div>
+                    <div class="card-body">
+                        <p><span class="font-weight-bold mr-2">Nombre: </span>
+                            <%= locals.userLogged.name %>
+                        </p>
+                        <p><span class="font-weight-bold mr-2">Email: </span>
+                            <%= locals.userLogged.email %>
+                        </p>
+                        <a href="profile/edit" class="btn btn-info ml-0">Editar mi perfil</a>
+                        <a href="profile/edit" class="btn btn-danger ml-0">Salir</a>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-header">
+                        Mis Pedidos
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-responsive-md mb-0">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">
+                                        <strong>#</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Fecha</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Estado</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Total</strong>
+                                    </th>
+                                    <th style="width: 50px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>2022/06/04</td>
+                                    <td>Pendiente</td>
+                                    <td>$1200</td>
+                                    <td><button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>2022/06/03</td>
+                                    <td>En Preparación</td>
+                                    <td>$1200</td>
+                                    <td><button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>2022/06/02</td>
+                                    <td>Entregado</td>
+                                    <td>$1200</td>
+                                    <td><button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>2022/06/01</td>
+                                    <td>Entregado</td>
+                                    <td>$1200</td>
+                                    <td><button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>2022/05/20</td>
+                                    <td>Entregado</td>
+                                    <td>$1200</td>
+                                    <td><button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>2022/05/18</td>
+                                    <td>Entregado</td>
+                                    <td>$1200</td>
+                                    <td><button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--Main layout-->
+        <%- include('../partials/footer') %>
+            <%- include('../partials/scripts') %>
+</body>
+
+</html>

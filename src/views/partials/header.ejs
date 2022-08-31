@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!-- Left -->
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto align-items-center">
                 <li class="nav-item <%= locals.active == '' ? 'active':'' %> ">
                     <a class="nav-link waves-effect" href="/">Inicio
                         <% if (locals.active=='/' ) { %>
@@ -48,22 +48,36 @@
                         <span class="sr-only">(current)</span>
                         <% } %>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="/login">Ingreso</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="/register">Registro</a>
-                </li>
+
+                <% if (locals.userFound) { %>
+
+
+                    <li class="nav-item  <%= locals.active == 'profile' ? 'active':'' %>">
+                        <a class="nav-link waves-effect" href="/profile">Mi Cuenta </a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="/logout" method="POST">
+                            <button class="btn-link btn py-2 px-3 m-0 nav-link waves-effect"><i
+                                    class="fas fa-sign-out-alt"></i></button>
+                        </form>
+                    </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="/login">Ingreso</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="/register">Registro</a>
+                        </li>
+                        <% } %>
             </ul>
 
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
-                    <a class="nav-link waves-effect">
-
+                    <a class="nav-link waves-effect mr-2 pr-4">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="clearfix d-none d-sm-inline-block"> Carrito </span>
-                        <span class="badge red z-depth-1 mr-1"> 1 </span>
+                        <span class="badge red z-depth-1 mr-1 cart-number"> 1 </span>
                     </a>
                 </li>
 

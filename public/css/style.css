@@ -30,3 +30,8 @@ main {
 .page-footer {
   background-color: #929fba;
 }
+
+.cart-number {
+  position: absolute;
+  top: 0;
+}

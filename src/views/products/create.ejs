@@ -21,13 +21,17 @@
                   <label for="name">Nombre</label>
                 </div>
                 <div class="md-form">
-                  <input type="text" name="price" id="price" class="form-control">
+                  <input type="number" step=".01" name="price" id="price" class="form-control">
                   <label for="price">Precio</label>
                 </div>
                 <div class="custom-file mb-4">
                   <input type="file" class="custom-file-input" name="img" id="img" aria-describedby="inputImage"
                     lang="es">
                   <label class="custom-file-label" for="img">Elegir Foto</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-4">
+                  <input type="checkbox" class="custom-control-input" id="marked" name="marked">
+                  <label class="custom-control-label" for="marked">Marcar?</label>
                 </div>
                 <button class="btn btn-primary  waves-effect" type="submit">Guardar</button>
               </form>

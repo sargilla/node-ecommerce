@@ -1,106 +1,63 @@
-const databaseJson = require("../database/databaseJson");
-
-const databaseFilename = "../database/products.json";
-const categoriesFilename = "../database/categories.json";
+const db = require("../database/models");
 
 const controller = {
-  index: function (req, res) {
-    const prods = databaseJson.readJson(databaseFilename);
-    return res.render("products/list", { products: prods });
+  index: async function (req, res) {
+    let products = await db.Product.findAll();
+    return res.render("products/list", { products });
   },
-  detail: function (req, res) {
-    // res.send(req.params.id);
-    const products = databaseJson.readJson(databaseFilename);
-
-    //filtrar y buscar
-    let product = products.find((p) => {
-      return p.id == req.params.id;
-    });
+  detail: async function (req, res) {
+    let product = db.Product.findByPk(req.params.id);
     return res.render("products/detail", { product });
   },
   create: function (req, res) {
-    const categories = databaseJson.readJson(categoriesFilename);
-
-    return res.render("products/create", { categories });
+    return res.render("products/create");
   },
-  store: function (req, res) {
-    //leer el json
-    const prods = databaseJson.readJson(databaseFilename);
-
-    const idCalculated = databaseJson.lastElementId(prods) + 1;
-
-    //si hay imagen
+  store: async function (req, res) {
     let image = "";
     if (req.file) {
-      //le saco la palabra public para que sea a partir
       image = req.file.filename;
     }
 
     //guardo el nuevo producto con la estructura
-    prods.push({
-      id: idCalculated,
+    db.Product.create({
       name: req.body.name,
       price: req.body.price,
       img: image,
+      marked: req.body.marked ? true : false,
     });
-
-    //reescribo el json
-    databaseJson.writeJson(prods, databaseFilename);
 
     //redireccione al listado de productos
     return res.redirect("/products");
   },
-  edit: function (req, res) {
-    //return res.send(req.params);
-    const products = databaseJson.readJson(databaseFilename);
-
-    //filtrar y buscar
-    let product = products.filter((p) => {
-      return p.id == req.params.id;
-    });
-
-    //si no existe el producto??
-    //let product = { id: 99, name: 'producto a editar', price: 1200, img: 'ruta..' }
-
-    return res.render("products/edit", { product: product[0] });
-  },
-  update: function (req, res) {
-    //validar los datos
-
-    //leer el archivo json
-    let prods = databaseJson.readJson(databaseFilename);
-
-    //guardarlo
-    prods = prods.map((p) => {
-      if (p.id == req.params.id) {
-        /*let product = { 
-                    id: p.id,
-                    name: req.body.name,
-                    price: req.body.price,
-                    img: p.img
-                }
-                if (req.file) { //si me enviaron la imagen entonces la piso
-                    product.img = req.file.filename
-                }
-                return product*/
-        p.name = req.body.name;
-        p.price = req.body.price;
-        if (req.file) {
-          //si me enviaron la imagen entonces la piso
-          p.img = req.file.filename;
-        }
-      }
-      return p;
-    });
-
-    //reescribo el json
-    databaseJson.writeJson(prods, databaseFilename);
-
-    //redireccionar
+  edit: async function (req, res) {
+    let product = await db.Product.findByPk(req.params.id);
+    if (product) {
+      return res.render("products/edit", { product });
+    }
     return res.redirect("/products");
   },
-  delete: function (req, res) {
-    //hacer la eliminacion
+  update: async function (req, res) {
+    let product = await db.Product.findByPk(req.params.id);
+    if (product) {
+      let image = product.img;
+      if (req.file) {
+        image = req.file.filename;
+      }
+      product.update({
+        name: req.body.name,
+        price: req.body.price,
+        img: image,
+        marked: req.body.marked ? true : false,
+      });
+    }
+    return res.redirect("/products");
+  },
+  delete: async function (req, res) {
+    await db.Product.destroy({
+      where: { id: req.params.id },
+    });
+
+    res.redirect("/products");
   },
 };
 
