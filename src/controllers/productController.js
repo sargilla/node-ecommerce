@@ -43,7 +43,7 @@ const controller = {
       if (req.file) {
         image = req.file.filename;
       }
-      product.update({
+      await product.update({
         name: req.body.name,
         price: req.body.price,
         img: image,
