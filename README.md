@@ -17,3 +17,29 @@ Instalar paquetes
 ```
 npm install
 ```
+
+Crear .env para las variables de entorno
+
+```
+cp .env.example .env
+```
+
+Crear la base de datos y configurar el .env con los datos de su conexión
+
+```
+DB_USER=
+DB_PASS=
+DB_NAME=
+```
+
+Ejecutar la migración para crear las tablas en la DB_NAME
+
+```
+sequelize db:migrate
+```
+
+Inicializar el proyecto
+
+```
+npm start
+```
