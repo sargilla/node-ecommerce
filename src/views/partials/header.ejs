@@ -1,18 +1,3 @@
-<!-- <header>
-    <div class="menu-header">
-        <div class="logo"><a href="/">Logo</a></div>
-        <div class="menu-user">
-            
-            <a class="menu-user-item" href="/products">Productos</a>
-            <a class="menu-user-item" href="/login">Login</a>
-            <a class="menu-user-item" href="/register">Registro</a>
-            <a class="menu-user-item" href="/profile">Perfil</a>
-            <a class="menu-user-item" href="/logout">LogOut</a>
-            
-        </div>
-    </div>
-</header> -->
-
 <!-- Navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
@@ -50,8 +35,6 @@
                 </li>
 
                 <% if (locals.userFound) { %>
-
-
                     <li class="nav-item  <%= locals.active == 'profile' ? 'active':'' %>">
                         <a class="nav-link waves-effect" href="/profile">Mi Cuenta </a>
                     </li>
@@ -74,10 +57,10 @@
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
-                    <a class="nav-link waves-effect mr-2 pr-4">
+                    <a class="nav-link waves-effect mr-2 pr-4" href="/cart">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="clearfix d-none d-sm-inline-block"> Carrito </span>
-                        <span class="badge red z-depth-1 mr-1 cart-number"> 1 </span>
+                        <span class="badge red z-depth-1 mr-1 cart-number">0</span>
                     </a>
                 </li>
 

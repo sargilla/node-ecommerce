@@ -2,69 +2,31 @@
 <html lang="en">
 
 <head>
-  <%- include('../partials/head') %>
-    <link rel="stylesheet" href="/css/products.css">
+    <%- include('../partials/head') %>
+        <link rel="stylesheet" href="/css/products.css">
 </head>
 
 <body>
-  <%- include('../partials/header') %>
-    <main class="mt-5 pt-4">
-      <div class="container wow fadeIn animated">
-        <h2 class="mt-5 mb-3 h2 text-center">Nuestros Productos</h2>
-        <a class="btn btn-primary btn-rounded" href="/products/create">Agregar Producto</a>
-        <section class="text-center mt-2 mb-4">
-          <div class="row wow fadeIn">
-            <% products.forEach( prod=> { %>
-              <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card">
-                  <div class="view overlay">
-                    <img src="/img/products/<%= prod.img != ''? prod.img: 'default.jpg' %>" class="card-img-top" alt="">
-                    <a href="/products/detail/<%= prod.id %>">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-                  <div class="card-body text-center">
-                    <h5>
-                      <strong>
-                        <a href="/products/detail/<%= prod.id %>" class="dark-grey-text">
-
-                          <%= prod.name %>
-                            <% if (prod.marked) { %>
-                              <span class="badge badge-pill primary-color">Novedad</span>
-                              <% } %>
-                        </a>
-                      </strong>
-                    </h5>
-
-                    <h4 class="font-weight-bold blue-text">
-                      <strong>$<%= prod.price %></strong>
-                    </h4>
-                    <div class="d-flex justify-content-around">
-                      <a type="button" href="/products/edit/<%= prod.id %>" class="btn btn-warning btn-sm btn-floating">
-                        <i class="fas fa-edit"></i>
-                      </a>
-                      <form action="/products/<%= prod.id %>?_method=delete" method="POST">
-                        <button class="btn btn-danger btn-floating btn-sm" type="submit">
-                          <i class="fas fa-trash-alt"></i>
-                        </button>
-                      </form>
+    <%- include('../partials/header') %>
+        <main class="mt-5 pt-4">
+            <div class="container wow fadeIn animated">
+                <h2 class="mt-5 mb-3 h2 text-center">Nuestros Productos</h2>
+                <a class="btn btn-primary btn-rounded" href="/products/create">Agregar Producto</a>
+                <section class="text-center mt-2 mb-4">
+                    <div class="row wow fadeIn">
+                        <% products.forEach( prod=> { %>
+                            <%- include('../partials/producto' ,{prod}) %>
+                                <% } ) %>
                     </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-              <% } ) %>
-          </div>
-        </section>
+                </section>
 
 
-      </div>
+            </div>
 
-    </main>
-    <%- include('../partials/footer') %>
-      <%- include('../partials/scripts') %>
+        </main>
+        <%- include('../partials/footer') %>
+            <%- include('../partials/scripts') %>
+                <script src="/js/cart.js"></script>
 </body>
 
 </html>

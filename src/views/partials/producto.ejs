@@ -1,0 +1,43 @@
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="card">
+        <div class="view overlay">
+            <img src="/img/products/<%= prod.img != ''? prod.img: 'default.jpg' %>" class="card-img-top" alt="">
+            <a href="/products/detail/<%= prod.id %>">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+        <div class="card-body text-center">
+            <h5>
+                <strong>
+                    <a href="/products/detail/<%= prod.id %>" class="dark-grey-text">
+
+                        <%= prod.name %>
+                            <% if (prod.marked) { %>
+                                <span class="badge badge-pill primary-color">Novedad</span>
+                                <% } %>
+                    </a>
+                </strong>
+            </h5>
+            <h4 class="font-weight-bold blue-text">
+                <strong>$<%= prod.price %></strong>
+            </h4>
+            <div class="d-flex">
+                <button class="btn btn-primary btn-block agregar_carrito" data-id="<%= prod.id %>">Comprar</button>
+            </div>
+            <% if (locals.userFound && locals.userAdmin) { %>
+                <div class="d-flex justify-content-around mt-3">
+                    <a type="button" href="/products/edit/<%= prod.id %>" class="btn btn-warning btn-sm btn-floating">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <form action="/products/<%= prod.id %>?_method=delete" method="POST">
+                        <button class="btn btn-danger btn-floating btn-sm" type="submit">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </div>
+                <% } %>
+        </div>
+
+    </div>
+
+</div>

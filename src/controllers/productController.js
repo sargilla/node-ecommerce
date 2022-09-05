@@ -19,7 +19,7 @@ const controller = {
     }
 
     //guardo el nuevo producto con la estructura
-    db.Product.create({
+    await db.Product.create({
       name: req.body.name,
       price: req.body.price,
       img: image,

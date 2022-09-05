@@ -5,7 +5,9 @@ body,
   height: 100%;
 }
 
-main {
+table.table td,
+table.table th {
+  vertical-align: middle;
 }
 /* Half Page Carousel itself*/
 .carousel {
@@ -34,4 +36,15 @@ main {
 .cart-number {
   position: absolute;
   top: 0;
+  padding-top: 6px;
+}
+
+main.error {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+main.error h1 {
+  text-align: center;
 }

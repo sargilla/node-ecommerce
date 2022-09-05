@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <main class="mt-5 pt-4">
+            <div class="container wow fadeIn animated">
+                <h2 class="mt-5 mb-3 h2 text-center"> Pedido Nro</h2>
+                <div class="card my-5">
+                    <div class="card-body">
+                        <table class="table table-responsive-md mb-0">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">
+                                        <strong>#</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Producto</strong>
+                                    </th>
+                                    <th class="th-lg ">
+                                        <strong>Precio</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Cantidad</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Subtotal</strong>
+                                    </th>
+                                    <th style="width: 50px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="cartRows">
+                            </tbody>
+                        </table>
+                        <div class="card-footer text-right">
+                            <h2>Total: <span class="totalAmount">$ 0</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header text-center">
+                        Detalles de la compra
+                    </div>
+                    <form class="card-body" id="checkoutCart">
+                        <div class="row">
+                            <div class=" col-md-6 mb-4">
+                                <p><strong>Tipo Envio:</strong> Correo Argentino</p>
+                            </div>
+                            <div class=" col-md-6 mb-4">
+                                <p><strong>Pago:</strong> Efectivo</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <%- include('./partials/footer') %>
+            <%- include('./partials/scripts') %>
+</body>
+
+</html>

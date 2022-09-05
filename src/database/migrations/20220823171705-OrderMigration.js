@@ -12,14 +12,24 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
+        references: {
+          model: {
+            tableName: "users",
+          },
+          key: "id",
+        },
       },
       total: {
-        type: Sequelize.DECIMAL(10, 0),
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
       },
       paymentMethod: {
         type: Sequelize.STRING(25),
         allowNull: false,
+      },
+      shippingMethod: {
+        type: Sequelize.STRING(25),
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

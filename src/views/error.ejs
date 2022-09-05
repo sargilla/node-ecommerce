@@ -1,3 +1,23 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head') %>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <main class="error">
+            <div class="container wow fadeIn animated">
+                <h1>
+                    <%= message %>
+                </h1>
+                <h2>
+                    <%= error.status %>
+                </h2>
+                <pre><%= error.stack %></pre>
+            </div>
+        </main>
+</body>
+
+</html>

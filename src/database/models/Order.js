@@ -7,10 +7,10 @@ module.exports = (sequelize, dataTypes) => {
       autoIncrement: true,
       allowNull: false,
     },
-    userId: {
-      type: dataTypes.INTEGER(11),
-      allowNull: false,
-    },
+    // userId: {
+    //   type: dataTypes.INTEGER(11),
+    //   allowNull: false,
+    // },
     total: {
       type: dataTypes.DECIMAL(10, 2),
       allowNull: false,
@@ -19,14 +19,22 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING(25),
       allowNull: false,
     },
+    shippingMethod: {
+      type: dataTypes.STRING(25),
+      allowNull: true,
+    },
   };
   let configurations = {};
 
   const Order = sequelize.define(alias, columns, configurations);
 
   Order.associate = (models) => {
-    Order.belongsTo(models.User, {
+    Order.User = Order.belongsTo(models.User, {
       as: "user",
+      foreignKey: "userId",
+    });
+    Order.OrderItems = Order.hasMany(models.OrderItem, {
+      as: "orderItems",
     });
   };
 
