@@ -57,15 +57,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>2022/06/04</td>
-                                    <td>Correo Argentino</td>
-                                    <td>Efectivo</td>
-                                    <td>$1220</td>
-                                    <td><button class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></button></td>
-                                </tr>
-
+                                <% orders.forEach((order,index)=> { %>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= index + 1 %>
+                                        </th>
+                                        <td>
+                                            <%= new Intl.DateTimeFormat('es-ES', { year: 'numeric' , month: 'numeric' ,
+                                                day: '2-digit' ,hour: 'numeric' , minute: 'numeric'
+                                                }).format(order.createdAt) %>
+                                        </td>
+                                        <td>
+                                            <%= order.shippingMethod %>
+                                        </td>
+                                        <td>
+                                            <%= order.paymentMethod %>
+                                        </td>
+                                        <td>$ <%= order.total %>
+                                        </td>
+                                        <td><a class="btn btn-warning btn-sm" href="<%= `/order/${order.id}` %> "><i
+                                                    class="fas fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
                             </tbody>
                         </table>
                     </div>
