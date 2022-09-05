@@ -6,6 +6,6 @@ const authMiddleware = require("../middlewares/authMiddleware");
 /* GET home page. */
 router.get("/", controller.home);
 router.get("/cart", authMiddleware, controller.cart);
-router.get("/order/:id", controller.pedido);
+router.get("/order/:id", authMiddleware, controller.order);
 
 module.exports = router;

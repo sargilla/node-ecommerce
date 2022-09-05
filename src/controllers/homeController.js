@@ -12,7 +12,7 @@ module.exports = {
   cart: function (req, res) {
     return res.render("cart");
   },
-  pedido: async function (req, res) {
+  order: async function (req, res) {
     let order = await db.Order.findByPk(req.params.id, {
       include: db.Order.OrderItems,
     });
