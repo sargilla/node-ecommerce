@@ -19,10 +19,6 @@ window.addEventListener("load", function () {
     extendedTimeOut: 1000,
   };
 
-  /* Numero del carrito */
-  let cartNumber = document.querySelector(".cart-number");
-  cartNumber.innerText = productosEnElCarrito();
-
   /* Selecciono todos los productos de la página */
   let productos = document.querySelectorAll(".agregar_carrito");
 
@@ -48,4 +44,8 @@ window.addEventListener("load", function () {
       toastr.success("Se agregó este producto al carrito");
     });
   });
+
+  /* Numero del carrito */
+  let cartNumber = document.querySelector(".cart-number");
+  cartNumber.innerText = productosEnElCarrito();
 });
